@@ -1,0 +1,314 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FONDO GENERAL */
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #fdecef, transparent 70%),
+    linear-gradient(180deg, #fff6f8, #fdecef);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  padding: 20px;
+}
+
+/* TARJETA */
+.tarjeta {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 42px 26px;
+  border-radius: 24px;
+
+  /* 🌸 FONDO FLORAL */
+  background:
+    radial-gradient(circle at 20% 20%, rgba(232,140,160,0.18) 0%, transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(242,184,198,0.20) 0%, transparent 45%),
+    radial-gradient(circle at 30% 80%, rgba(232,140,160,0.15) 0%, transparent 45%),
+    linear-gradient(180deg, #ffffff, #fff4f7);
+
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+/* FLORES DECORATIVAS */
+.tarjeta::before,
+.tarjeta::after {
+  content: "❀ ❀ ❀";
+  position: absolute;
+  font-size: 70px;
+  color: rgba(232, 140, 160, 0.18);
+  font-family: serif;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.tarjeta::before {
+  top: -30px;
+  left: -10px;
+}
+
+.tarjeta::after {
+  bottom: -35px;
+  right: -10px;
+  transform: rotate(180deg);
+}
+
+/* FLORES EXTRA (laterales) */
+.contenido::before,
+.contenido::after {
+  content: "❀ ❀";
+  position: absolute;
+  font-size: 42px;
+  color: rgba(232, 140, 160, 0.22);
+  pointer-events: none;
+}
+
+.contenido::before {
+  top: 35%;
+  left: -15px;
+}
+
+.contenido::after {
+  top: 55%;
+  right: -15px;
+}
+
+/* CONTENIDO */
+.contenido {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+/* FOTO DE LA PAREJA */
+.foto {
+  width: 215px;
+  height: 215px;          /* cuadrada para que no corte la imagen */
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #f2b8c6;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* llena el círculo sin deformar */
+  object-position: center 5%; /* baja un poco para que se vean los rostros */
+}
+
+
+/* TEXTOS */
+.subtitulo {
+  font-size: 16px;
+  color: #c97a8a;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.nombres {
+  font-family: 'Great Vibes', cursive;
+  font-size: 44px;
+  color: #b85c74;
+  margin-bottom: 12px;
+}
+
+/* LÍNEA DECORATIVA */
+.nombres::after {
+  content: "";
+  display: block;
+  width: 110px;
+  height: 2px;
+  background: linear-gradient(to right, #f2b8c6, #e38ca0);
+  margin: 10px auto 0;
+  border-radius: 10px;
+}
+
+.mensaje {
+  font-size: 15px;
+  color: #5f5f5f;
+  line-height: 1.7;
+  margin: 20px 12px;
+}
+
+/* BOUQUET (opcional) */
+.detalle-bouquet {
+  width: 120px;
+  margin: 12px auto 18px;
+}
+
+.detalle-bouquet img {
+  width: 100%;
+}
+
+/* FECHA */
+.fecha {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: #b85c74;
+  margin-bottom: 22px;
+}
+
+.fecha .corazon {
+  color: #e38ca0;
+}
+
+/* BOTONES */
+.acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.boton {
+  display: block;
+  text-decoration: none;
+  background: linear-gradient(135deg, #f2b8c6, #e38ca0);
+  color: #ffffff;
+  padding: 14px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.boton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* RESPONSIVE (WhatsApp / móvil) */
+@media (max-width: 420px) {
+  .tarjeta {
+    padding: 36px 22px;
+  }
+
+  .nombres {
+    font-size: 38px;
+  }
+
+  .tarjeta::before,
+  .tarjeta::after {
+    font-size: 55px;
+  }
+
+  .contenido::before,
+  .contenido::after {
+    font-size: 32px;
+  }
+}
+/* 🌸 PETALOS DENTRO DE LA TARJETA */
+/* 🌸🌹 PÉTALOS Y ROSAS ANIMADAS */
+.petalos {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.petalos span {
+  position: absolute;
+  top: -15%;
+  font-size: 34px; /* más grandes */
+  animation: caerFlores 6s linear infinite; /* más rápido */
+  opacity: 0;
+}
+
+/* ROSAS */
+.petalos span.rosa {
+  color: rgba(212, 92, 120, 0.75);
+  font-size: 38px;
+}
+
+/* PETALOS */
+.petalos span.petalo {
+  color: rgba(232, 110, 140, 0.65);
+  font-size: 32px;
+}
+
+/* POSICIONES + VELOCIDAD */
+.petalos span:nth-child(1) { left: 8%;  animation-duration: 6s; }
+.petalos span:nth-child(2) { left: 22%; animation-duration: 5s; }
+.petalos span:nth-child(3) { left: 36%; animation-duration: 6.5s; }
+.petalos span:nth-child(4) { left: 52%; animation-duration: 5.5s; }
+.petalos span:nth-child(5) { left: 68%; animation-duration: 7s; }
+.petalos span:nth-child(6) { left: 82%; animation-duration: 6s; }
+.petalos span:nth-child(7) { left: 92%; animation-duration: 5s; }
+
+@keyframes caerFlores {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(540deg);
+    opacity: 0;
+  }
+}
+/* 🕊️ MODAL DOMINGO */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 6;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-contenido {
+  background: #ffffff;
+  padding: 26px 22px;
+  border-radius: 20px;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.modal-contenido h2 {
+  color: #b85c74;
+  margin-bottom: 12px;
+}
+
+.modal-contenido p {
+  font-size: 15px;
+  color: #5f5f5f;
+  line-height: 1.6;
+}
+
+.cerrar {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #f2b8c6, #e38ca0);
+  color: #ffffff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
