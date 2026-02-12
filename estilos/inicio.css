@@ -90,7 +90,7 @@ body {
 /* FOTO DE LA PAREJA */
 .foto {
   width: 215px;
-  height: 215px;          /* cuadrada para que no corte la imagen */
+  height: 215px;           /*cuadrada para que no corte la imagen*/
   margin: 0 auto 14px;
   border-radius: 50%;
   overflow: hidden;
@@ -102,7 +102,7 @@ body {
 }
 
 .foto img {
-  width: 100%;
+  width: 100%;   /*100% para que se vea toda la imagen, pero con 150% se llena el círculo sin dejar espacios */
   height: 100%;
   object-fit: cover;      /* llena el círculo sin deformar */
   object-position: center 5%; /* baja un poco para que se vean los rostros */
@@ -311,4 +311,21 @@ body {
   border-radius: 25px;
   text-decoration: none;
   font-weight: bold;
+}
+/* 📸 FOTO SOLO PARA EL MODAL DOMINGO */
+.foto-domingo {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid #f2b8c6;
+  background: #ffffff;
+}
+
+.foto-domingo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
